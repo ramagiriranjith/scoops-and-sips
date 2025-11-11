@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Music } from "lucide-react"; // Music icon used for TikTok
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Music } from "lucide-react";
+import logo from './../assets/logo.png';
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -19,7 +20,7 @@ export const Footer = () => {
           <div>
             {/* Brand Logo */}
             <img
-              src="/src/assets/logo.png" // replace with your actual logo path in /public
+              src={logo} // replace with your actual logo path in /public
               alt="Scoops & Sips Logo"
               className="h-20 w-auto transition-transform duration-300 hover:scale-105"
             />
