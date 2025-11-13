@@ -1,206 +1,208 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { z } from "zod";
+import React, { useState } from 'react';
+import { MapPin, Phone, Clock, Mail, CheckCircle } from 'lucide-react';
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email address").max(255),
-  subject: z.string().trim().min(1, "Subject is required").max(200),
-  message: z.string().trim().min(1, "Message is required").max(1000),
-});
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const result = contactSchema.safeParse(formData);
-    
-    if (!result.success) {
-      const firstError = result.error.errors[0];
-      toast({
-        title: "Validation Error",
-        description: firstError.message,
-        variant: "destructive",
-      });
-      return;
-    }
-
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
-    <div className="min-h-screen py-12 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <div>
+      {/* Hero Section */}
+      <section className="relative py-20">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Contact Us
-          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Get in Touch</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We'd love to hear from you! Get in touch with any questions or feedback
+            We'd love to hear from you - whether it’s for catering, special events, or feedback!
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="border-2">
-              <CardHeader>
-                <CardTitle>Get In Touch</CardTitle>
-                <CardDescription>
-                  Reach out to us through any of these channels
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+      {/* Contact Section */}
+      <section className="py-16 bg-pink-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div>
+              <h2 className="text-4xl font-bold text-pink-700 mb-8">Contact Information</h2>
+
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start">
+                  <div className="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <MapPin className="h-6 w-6 text-pink-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Visit Us</h3>
-                    <p className="text-muted-foreground">
-                      123 Dessert Lane<br />
-                      Sweet City, SC 12345
+                    <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
+                    <p className="text-gray-600">
+                      211 NORTH STREET LS7 2AA LEEDS
+                      <br />
+                      United Kingdom
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
+                <div className="flex items-start">
+                  <div className="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Phone className="h-6 w-6 text-pink-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Call Us</h3>
-                    <a href="tel:+1234567890" className="text-primary hover:underline">
-                      (123) 456-7890
-                    </a>
+                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                    <p className="text-gray-600">+44 075260 37950</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
+                <div className="flex items-start">
+                  <div className="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Mail className="h-6 w-6 text-pink-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email Us</h3>
-                    <a href="mailto:hello@scoopsandsips.com" className="text-primary hover:underline">
-                      hello@scoopsandsips.com
-                    </a>
+                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                    <p className="text-gray-600">scoopsandsipsdesserts@gmail.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
+                <div className="flex items-start">
+                  <div className="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Clock className="h-6 w-6 text-pink-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Opening Hours</h3>
-                    <div className="text-muted-foreground space-y-1">
-                      <p>Monday - Thursday: 11:00 AM - 10:00 PM</p>
-                      <p>Friday - Sunday: 11:00 AM - 11:00 PM</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">Opening Hours</h3>
+                    <div className="text-gray-600">
+                      <p>Mon - Sun: 12:00 PM - 12:00 AM</p>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
 
-          {/* Contact Form */}
-          <Card className="border-2">
-            <CardHeader>
-              <CardTitle>Send Us a Message</CardTitle>
-              <CardDescription>
-                Fill out the form and we'll respond within 24 hours
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    maxLength={100}
-                  />
+              {/* Google Map */}
+              <div className="rounded-2xl overflow-hidden shadow-md h-64 border border-pink-100">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2061.2394948195088!2d-1.5735641117315047!3d53.81258120133633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795fad9ea615dd%3A0x670acc056af6a322!2sThe%20Indian%20Feast!5e1!3m2!1sen!2sin!4v1758789504423!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="bg-white rounded-3xl shadow-lg p-8 border border-pink-100">
+              <h2 className="text-3xl font-bold text-pink-700 mb-6">Send us a Message</h2>
+
+              {isSubmitted && (
+                <div className="mb-6 p-4 bg-pink-50 border border-pink-200 rounded-lg flex items-center">
+                  <CheckCircle className="h-5 w-5 text-pink-600 mr-2" />
+                  <span className="text-pink-700">
+                    Thank you! Your message has been sent successfully.
+                  </span>
+                </div>
+              )}
+
+              <form
+                action="https://formsubmit.co/naniranjith720@gmail.com"
+                method="POST"
+                className="space-y-6"
+                onSubmit={() => setIsSubmitted(true)}
+              >
+                {/* Hidden fields for autoresponder & subject */}
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="Customer Inquiry - Scoops and Sips Desserts"
+                />
+                <input
+                  type="hidden"
+                  name="_autoresponse"
+                  value={`Thank you for contacting Scoops and Sips Desserts! 🍨\n\nWe’ve received your message and will get back to you soon.\n\nBest wishes,\nThe Scoops and Sips Desserts Team`}
+                />
+                <input type="hidden" name="_template" value="table" />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 border border-pink-200 rounded-lg focus:ring-pink-400 focus:border-pink-400"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 border border-pink-200 rounded-lg focus:ring-pink-400 focus:border-pink-400"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    maxLength={255}
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 border border-pink-200 rounded-lg focus:ring-pink-400 focus:border-pink-400"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                      Subject
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      className="w-full px-4 py-3 border border-pink-200 rounded-lg focus:ring-pink-400 focus:border-pink-400"
+                    >
+                      <option value="">Select a subject</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Catering">Catering Request</option>
+                      <option value="Order Issue">Order Issue</option>
+                      <option value="Feedback">Feedback</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    maxLength={200}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message *
+                  </label>
+                  <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
+                    rows={5}
                     required
-                    maxLength={1000}
-                  />
+                    placeholder="Tell us how we can help you..."
+                    className="w-full px-4 py-3 border border-pink-200 rounded-lg focus:ring-pink-400 focus:border-pink-400"
+                  ></textarea>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
+                <button
+                  type="submit"
+                  className="w-full bg-pink-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-pink-700 transition-all shadow-md"
+                >
                   Send Message
-                </Button>
+                </button>
               </form>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      
     </div>
   );
 };
