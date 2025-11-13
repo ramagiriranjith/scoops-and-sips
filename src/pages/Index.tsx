@@ -5,48 +5,42 @@ import { Link } from "react-router-dom";
 import { IceCream, Cake, Coffee, Star } from "lucide-react";
 import { useState } from "react";
 
-import g1 from "@/assets/g_1.jpg";
-import g2 from "@/assets/g_2.jpg";
-import g3 from "@/assets/g_3.jpg";
-import g4 from "@/assets/g_4.jpg";
-import g5 from "@/assets/g_5.jpg";
-import g6 from "@/assets/g_6.jpg";
-import g7 from "@/assets/g_7.jpg";
-import g8 from "@/assets/g_8.jpg";
-import g9 from "@/assets/g_9.jpg";
-import g10 from "@/assets/g_10.jpg";
-import g11 from "@/assets/g_11.jpg";
-import g12 from "@/assets/g_12.jpg";
-
-// ✅ Import testimonial images
-import review1 from "@/assets/review-1.png";
-import review2 from "@/assets/review-2.png";
-import review3 from "@/assets/review-3.png";
 
 const Index = () => {
   const [showAll, setShowAll] = useState(false);
 
   const galleryImages = [
-    g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12
+    "/src/assets/g_1.jpg",
+    "/src/assets/g_2.jpg",
+    "/src/assets/g_3.jpg",
+    "/src/assets/g_4.jpg",
+    "/src/assets/g_5.jpg",
+    "/src/assets/g_6.jpg",
+    "/src/assets/g_7.jpg",
+    "/src/assets/g_8.jpg",
+    "/src/assets/g_9.jpg",
+    "/src/assets/g_10.jpg",
+    "/src/assets/g_11.jpg",
+    "/src/assets/g_12.jpg"
   ];
 
   const testimonials = [
     {
-      img: review1,
+      img: "/src/assets/review-1.png",
       name: "Halinah Bi",
       rating: 5,
       comment:
         "Savi was amazing - super nice and made our desserts really fast! Everything tasted absolutely delicious, you can tell she puts care into her work. Great service and great food - highly recommend!",
     },
     {
-      img: review2,
+      img: "/src/assets/review-2.png",
       name: "Kieran Garside",
       rating: 4,
       comment:
         "We ordered via Uber Eats - very speedy delivery and nice and warm. The Biscoff cheesecake was creamy and not too sweet, the Cookies & Cream cake was soft and fluffy, and the doughnuts were perfectly topped. Great pricing too!",
     },
     {
-      img: review3,
+      img: "/src/assets/review-3.png",
       name: "Aksharkumar Solanki",
       rating: 5,
       comment:
@@ -206,4 +200,5 @@ const Index = () => {
 };
 
 export default Index;
+
 
