@@ -7,25 +7,25 @@ const orderPlatforms = [
     name: "Deliveroo",
     description: "Fast delivery from our kitchen to your door",
     color: "from-[#00CCBC] to-[#00B8A9]",
-    url: "https://deliveroo.co.uk",
+    url: "https://deliveroo.co.uk/menu/Leeds/leeds-uni/scoops-and-sips-desserts-211-north-street?day=today&geohash=gcwfhhqtg47k&time=ASAP",
   },
   {
     name: "Just Eat",
     description: "Order your favorite desserts with ease",
     color: "from-[#FF8000] to-[#FF6600]",
-    url: "https://www.just-eat.co.uk",
+    url: "https://www.just-eat.co.uk/restaurants-scoops-and-sips-desserts-leeds/menu",
   },
   {
     name: "Uber Eats",
     description: "Quick and reliable dessert delivery",
     color: "from-[#06C167] to-[#05A857]",
-    url: "https://www.ubereats.com",
+    url: "https://www.ubereats.com/gb/store/scoops-and-sips-desserts/Pgvq5VWHSaCGvH_pAuKiQQ?diningMode=DELIVERY&sc=SEARCH_SUGGESTION",
   },
   {
     name: "Foodhub",
     description: "Local delivery, great savings",
     color: "from-[#E31837] to-[#C41230]",
-    url: "https://www.foodhub.co.uk",
+    url: "https://foodhub.co.uk/leeds/scoops-and-sips-desserts/ordernow",
   },
 ];
 
