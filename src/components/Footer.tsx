@@ -86,12 +86,12 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                <span>123 Dessert Lane, Sweet City, SC 12345</span>
+                <span>211 NORTH STREET LS7 2AA LEEDS, UNITED KINGDOM</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                  (123) 456-7890
+                  +44 075260 37950
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -110,15 +110,8 @@ export const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-foreground">Mon - Thu</p>
-                  <p>11:00 AM - 10:00 PM</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <Clock className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-foreground">Fri - Sun</p>
-                  <p>11:00 AM - 11:00 PM</p>
+                  <p className="font-medium text-foreground">Mon - Sun</p>
+                  <p>12:00 PM - 12:00 AM</p>
                 </div>
               </li>
             </ul>
