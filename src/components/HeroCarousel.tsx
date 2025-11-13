@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
@@ -8,7 +9,7 @@ import hero3 from "@/assets/hero-3.jpg";
 const slides = [
   {
     image: hero1,
-    title: "Welcome to Scoops and Sips Desserts",
+    title: "Welcome to Scoops & Sips",
     subtitle: "Premium Artisan Desserts",
   },
   {
@@ -61,9 +62,21 @@ export const HeroCarousel = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in">
               {slide.title}
             </h2>
-            <p className="text-xl md:text-2xl lg:text-3xl font-light animate-fade-in">
+            <p className="text-xl md:text-2xl lg:text-3xl font-light mb-8 animate-fade-in">
               {slide.subtitle}
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
+              <Link to="/menu">
+                <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-6">
+                  View Menu
+                </Button>
+              </Link>
+              <Link to="/order">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 bg-white/10 hover:bg-white/20 text-white border-white">
+                  Order Now
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       ))}
