@@ -9,7 +9,7 @@ import hero3 from "@/assets/hero-3.jpg";
 const slides = [
   {
     image: hero1,
-    title: "Welcome to Scoops & Sips",
+    title: "Welcome to Scoops and Sips Desserts",
     subtitle: "Premium Artisan Desserts",
   },
   {
