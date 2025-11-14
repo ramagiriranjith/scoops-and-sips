@@ -76,7 +76,7 @@ const Contact = () => {
               {/* Google Map */}
               <div className="rounded-2xl overflow-hidden shadow-md h-64 border border-pink-100">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2061.2394948195088!2d-1.5735641117315047!3d53.81258120133633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795fad9ea615dd%3A0x670acc056af6a322!2sThe%20Indian%20Feast!5e1!3m2!1sen!2sin!4v1758789504423!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d357.65861013000534!2d-1.535088887585818!3d53.807389251478405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795d36ee2943cd%3A0xf00323bd94480286!2sScoops%20and%20Sips%20Desserts!5e1!3m2!1sen!2sin!4v1763084853336!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
