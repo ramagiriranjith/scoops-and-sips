@@ -4,13 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { IceCream, Cake, Coffee, Star } from "lucide-react";
 import { useState } from "react";
-
+import g_1 from './../assets/g_1.jpg';
 
 const Index = () => {
   const [showAll, setShowAll] = useState(false);
 
   const galleryImages = [
-    "/src/assets/g_1.jpg",
+    g_1,
     "/src/assets/g_2.jpg",
     "/src/assets/g_3.jpg",
     "/src/assets/g_4.jpg",
