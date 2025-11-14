@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Music } from "lucide-react";
 import logo from './../assets/logo.png';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 const navigation = [
   { name: "Home", href: "/" },
