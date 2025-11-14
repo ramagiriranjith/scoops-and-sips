@@ -5,42 +5,56 @@ import { Link } from "react-router-dom";
 import { IceCream, Cake, Coffee, Star } from "lucide-react";
 import { useState } from "react";
 import g_1 from './../assets/g_1.jpg';
+import g_2 from './../assets/g_2.jpg';
+import g_3 from './../assets/g_3.jpg';
+import g_4 from './../assets/g_4.jpg';
+import g_5 from './../assets/g_5.jpg';
+import g_6 from './../assets/g_6.jpg';
+import g_7 from './../assets/g_7.jpg';
+import g_8 from './../assets/g_8.jpg';
+import g_9 from './../assets/g_9.jpg';
+import g_10 from './../assets/g_10.jpg';
+import g_11 from './../assets/g_11.jpg';
+import g_12 from './../assets/g_12.jpg';
+import review_1 from './../assets/review-1.png';
+import review_2 from './../assets/review-2.png';
+import review_3 from './../assets/review-3.png';
 
 const Index = () => {
   const [showAll, setShowAll] = useState(false);
 
   const galleryImages = [
     g_1,
-    "/src/assets/g_2.jpg",
-    "/src/assets/g_3.jpg",
-    "/src/assets/g_4.jpg",
-    "/src/assets/g_5.jpg",
-    "/src/assets/g_6.jpg",
-    "/src/assets/g_7.jpg",
-    "/src/assets/g_8.jpg",
-    "/src/assets/g_9.jpg",
-    "/src/assets/g_10.jpg",
-    "/src/assets/g_11.jpg",
-    "/src/assets/g_12.jpg"
+    g_2,
+    g_3,
+    g_4,
+    g_5,
+    g_6,
+    g_7,
+    g_8,
+    g_9,
+    g_10,
+    g_11,
+    g_12
   ];
 
   const testimonials = [
     {
-      img: "/src/assets/review-1.png",
+      img: review_1,
       name: "Halinah Bi",
       rating: 5,
       comment:
         "Savi was amazing - super nice and made our desserts really fast! Everything tasted absolutely delicious, you can tell she puts care into her work. Great service and great food - highly recommend!",
     },
     {
-      img: "/src/assets/review-2.png",
+      img: review_2,
       name: "Kieran Garside",
       rating: 4,
       comment:
         "We ordered via Uber Eats - very speedy delivery and nice and warm. The Biscoff cheesecake was creamy and not too sweet, the Cookies & Cream cake was soft and fluffy, and the doughnuts were perfectly topped. Great pricing too!",
     },
     {
-      img: "/src/assets/review-3.png",
+      img: review_3,
       name: "Aksharkumar Solanki",
       rating: 5,
       comment:
